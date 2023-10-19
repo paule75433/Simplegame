@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, input, button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess the Number Game</h1>
+    <h2>Guess a number between 1 and 100:</h2>
+    <input type="text" id="userGuess">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <p id="feedback"></p>
+
+    <script>
+        var secretNumber = Math.floor(Math.random() * 100) + 1;
+        var attempts = 0;
+
+        function checkGuess() {
+            var userGuess = parseInt(document.getElementById("userGuess").value);
+            attempts++;
+
+            var feedbackElement = document.getElementById("feedback");
+
+            if (userGuess < secretNumber) {
+                feedbackElement.textContent = "Too low! Try again.";
+            } else if (userGuess > secretNumber) {
+                feedbackElement.textContent = "Too high! Try again.";
+            } else {
+                feedbackElement.textContent = "Congratulations! You're gay and solved this in " + attempts + " attempts.";
+            }
+        }
+    </script>
+</body>
+</html>
